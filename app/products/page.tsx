@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ProductsFilter from "./ProductsFilter";
 
 export const metadata: Metadata = {
   title: "Products",
@@ -42,8 +43,6 @@ const ITEMS: Item[] = [
 ];
 
 export default function ProductsPage() {
-  const shown = ITEMS;
-
   return (
     <>
       <section style={{ borderBottom: "1px solid var(--color-divider)" }}>
@@ -109,201 +108,7 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      <section
-        style={{
-          position: "sticky",
-          top: "62px",
-          zIndex: 50,
-          background: "var(--color-bg)",
-          borderBottom: "1px solid var(--color-divider)",
-        }}
-      >
-        <div
-          style={{
-            maxWidth: "1600px",
-            margin: "0 auto",
-            padding: "0 clamp(12px,2vw,28px)",
-            display: "flex",
-            gap: 0,
-            flexWrap: "wrap",
-            alignItems: "stretch",
-          }}
-        >
-          <button
-            type="button"
-            style={{
-              appearance: "none",
-              cursor: "pointer",
-              fontFamily: "inherit",
-              border: 0,
-              borderRight: "1px solid var(--color-divider)",
-              padding: "15px clamp(14px,1.8vw,26px)",
-              fontSize: "12px",
-              fontWeight: 700,
-              letterSpacing: ".1em",
-              textTransform: "uppercase",
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
-              background: "var(--color-accent)",
-              color: "#fff",
-            }}
-          >
-            All <span style={{ opacity: 0.55 }}>23</span>
-          </button>
-          <button
-            type="button"
-            style={{
-              appearance: "none",
-              cursor: "pointer",
-              fontFamily: "inherit",
-              border: 0,
-              borderRight: "1px solid var(--color-divider)",
-              padding: "15px clamp(14px,1.8vw,26px)",
-              fontSize: "12px",
-              fontWeight: 700,
-              letterSpacing: ".1em",
-              textTransform: "uppercase",
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
-              background: "transparent",
-              color: "var(--color-text)",
-            }}
-          >
-            Baby <span style={{ opacity: 0.55 }}>5</span>
-          </button>
-          <button
-            type="button"
-            style={{
-              appearance: "none",
-              cursor: "pointer",
-              fontFamily: "inherit",
-              border: 0,
-              borderRight: "1px solid var(--color-divider)",
-              padding: "15px clamp(14px,1.8vw,26px)",
-              fontSize: "12px",
-              fontWeight: 700,
-              letterSpacing: ".1em",
-              textTransform: "uppercase",
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
-              background: "transparent",
-              color: "var(--color-text)",
-            }}
-          >
-            Kids <span style={{ opacity: 0.55 }}>6</span>
-          </button>
-          <button
-            type="button"
-            style={{
-              appearance: "none",
-              cursor: "pointer",
-              fontFamily: "inherit",
-              border: 0,
-              borderRight: "1px solid var(--color-divider)",
-              padding: "15px clamp(14px,1.8vw,26px)",
-              fontSize: "12px",
-              fontWeight: 700,
-              letterSpacing: ".1em",
-              textTransform: "uppercase",
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
-              background: "transparent",
-              color: "var(--color-text)",
-            }}
-          >
-            Women's <span style={{ opacity: 0.55 }}>6</span>
-          </button>
-          <button
-            type="button"
-            style={{
-              appearance: "none",
-              cursor: "pointer",
-              fontFamily: "inherit",
-              border: 0,
-              borderRight: "1px solid var(--color-divider)",
-              padding: "15px clamp(14px,1.8vw,26px)",
-              fontSize: "12px",
-              fontWeight: 700,
-              letterSpacing: ".1em",
-              textTransform: "uppercase",
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
-              background: "transparent",
-              color: "var(--color-text)",
-            }}
-          >
-            Men's <span style={{ opacity: 0.55 }}>6</span>
-          </button>
-        </div>
-      </section>
-
-      <section style={{ borderBottom: "1px solid var(--color-divider)" }}>
-        <div
-          style={{
-            maxWidth: "1600px",
-            margin: "0 auto",
-            padding: "clamp(24px,3vw,44px) clamp(12px,2vw,28px)",
-          }}
-        >
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fill,minmax(220px,1fr))",
-              gap: "1px",
-              background: "var(--color-divider)",
-              border: "1px solid var(--color-divider)",
-            }}
-          >
-            {shown.map((item) => (
-              <article
-                key={item.name}
-                style={{
-                  background: "#fff",
-                  animation: "cCell .55s cubic-bezier(.2,.8,.2,1) both",
-                }}
-              >
-                <div style={{ aspectRatio: "3/4", overflow: "hidden", background: "#fff" }}>
-                  <img
-                    src={item.src}
-                    alt={item.alt}
-                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                  />
-                </div>
-                <div
-                  style={{
-                    padding: "14px 16px",
-                    borderTop: "1px solid var(--color-divider)",
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "baseline",
-                    gap: "10px",
-                  }}
-                >
-                  <span style={{ fontSize: "13px", fontWeight: 700, letterSpacing: "-.01em" }}>
-                    {item.name}
-                  </span>
-                  <span
-                    style={{
-                      fontSize: "11px",
-                      fontWeight: 700,
-                      letterSpacing: ".1em",
-                      textTransform: "uppercase",
-                      color: "var(--color-accent)",
-                    }}
-                  >
-                    {item.cat}
-                  </span>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ProductsFilter items={ITEMS} />
 
       <section
         style={{
